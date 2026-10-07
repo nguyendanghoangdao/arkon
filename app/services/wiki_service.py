@@ -697,7 +697,7 @@ async def regenerate_index(
         page = WikiPage(
             slug=INDEX_SLUG,
             title="Wiki Index",
-            page_type="index",
+            # page_type="index",
             content_md=new_md,
             summary="Catalog of all wiki pages",
             knowledge_type_slugs=[],
@@ -729,7 +729,7 @@ async def append_log(
         page = WikiPage(
             slug=LOG_SLUG,
             title="Wiki Log",
-            page_type="log",
+            # page_type="log",
             content_md=f"# Wiki Log\n\n{line}\n",
             summary="Chronological activity log",
             knowledge_type_slugs=[],

@@ -54,15 +54,16 @@ services:
       retries: 10
 
   minio:
-    image: minio/minio:latest
+    image: quay.io/minio/aistor/minio:latest
     container_name: arkon_minio
     restart: always
-    command: server /data --console-address ":9001"
+    command: server /data --license /minio.license --console-address ":9001"
     environment:
       MINIO_ROOT_USER: ${MINIO_ACCESS_KEY:-minioadmin}
       MINIO_ROOT_PASSWORD: ${MINIO_SECRET_KEY:-minioadmin123}
     volumes:
       - minio_data:/data
+      - ./minio.license:/minio.license
     ports:
       - "9002:9000"
       - "9003:9001"
